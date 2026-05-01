@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵犀AI助手</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5138761_ypwypca48ec.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<body>
+    <!-- 页面设计 -->
+    <div class="container">
+    <!-- 首页，初始显示 -->
+        <section class="welcome-section">
+            <!-- 欢迎 -->
+            <h1 class="title">嗨，我是灵犀</h1>
+            <p class="subtitle">我能帮你什么吗？</p>
+            <!-- 四个小盒子（放到一个大盒子里面） -->
+            <div class="shortcut-cards">
+                <div class="card" data-text="我是一名前端开发初学者，如何提升相关技能？">
+                    <p class="card-text">我是一名前端开发初学者，如何提升相关技能？</p>
+                    <div class="card-icon">
+                        <i class="iconfont icon-h5-icon-09" style="color:#547bec;"></i>
+                    </div>
+                </div>
+                <div class="card" data-text="有哪些平价又新颖的生日礼物适合送朋友。">
+                    <p class="card-text">有哪些平价又新颖的生日礼物适合送朋友。</p>
+                    <div class="card-icon">
+                        <i class="iconfont icon-dengpao" style="color:#60a046;"></i>
+                    </div>
+                </div>
+                <div class="card" data-text="准备在家里办一个大型家庭聚会，帮我计划。">
+                    <p class="card-text">准备在家里办一个大型家庭聚会，帮我计划。</p>
+                    <div class="card-icon">
+                        <i class="iconfont icon-compass-3-line" style="color:#e2b943;"></i>
+                    </div>
+                </div>
+                <div class="card" data-text="带小朋友去野餐，有什么好玩的活动建议吗？">
+                    <p class="card-text">带小朋友去野餐，有什么好玩的活动建议吗？</p>
+                    <div class="card-icon">
+                        <i class="iconfont icon-editor2" style="color:#6546b3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="chat-section hidden">
+            <div class="chat-container" id="chatContainer">
+                <!-- 后续用户消息、AI消息会通过JS添加到这里 -->
+            </div>
+        </section>
+        <section class="input-section">
+            <div class="input-container">                   
+    <!-- 第1个盒子：输入框 + 上传按钮 -->
+                <div class="input-box">
+                    <textarea id="userInput" placeholder="有问题尽管问我" rows="1"></textarea>
+                    <div class="btn-group">
+                        <div class="action-wrapper">
+                            <!-- 暂停图标 -->
+                            <button class="icon-btn pause-icon" id="pauseBtn">
+                                <i class="iconfont icon-ic_zanting"></i>
+                            </button>
+                    <!-- 链接/上传图标 s-->
+                            <button class="icon-btn upload-icon" id="uploadBtn">
+                                <i class="iconfont icon-lianjie"></i>
+                            </button>
+                        </div>
+                    <!-- 发送图标 -->
+                        <button class="icon-btn send-icon" id="sendBtn">
+                            <i class="iconfont icon-xiangshangjiantou"></i>
+                        </button>
+                        
+                    </div>
+                </div>
+    <!-- 第2个盒子：主题切换 -->
+                <div class="btn-box">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="iconfont icon-pingmuliangdu"></i>
+                    </button>
+                </div>
+    <!-- 第3个盒子：清空对话 -->
+                <div class="btn-box">
+                    <button class="clear-chat" id="clearChat">
+                        <i class="iconfont icon-shanchu"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="footer-tip">内容由 AI 大模型生成，请仔细甄别</p>
+</section>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>

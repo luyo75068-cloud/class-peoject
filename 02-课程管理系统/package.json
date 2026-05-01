@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@ant-design/charts": "^2.6.7",
+    "react-markdown": "^10.1.0"
+  }
+}
