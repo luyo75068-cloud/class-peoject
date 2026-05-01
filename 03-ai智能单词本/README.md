@@ -1,9 +1,6 @@
 # 英语学习助手 (English Learning Assistant)
 
 ## 项目信息
-- **开发者**: 田倩
-- **学校**: 中国地质大学（武汉）
-- **学号**: 1202411182
 - **项目类型**: 前后端分离 Web 应用
 - **技术栈**: Go + Gin + React + MySQL + Docker
 
@@ -71,18 +68,18 @@ git clone [项目地址]
 cd docker-gin
 
 # 2. 注入 AI 大模型密钥
-# 请打开项目根目录的 docker-compose.yml 文件
-# 找到 backend 服务的 environment 配置，填入真实的 API Key：
-# - AI_API_KEY=sk-xxxxxxxxxxxxxxxxxxx
+ 请打开项目根目录的 docker-compose.yml 文件
+ 找到 backend 服务的 environment 配置，填入真实的 API Key：
+  - AI_API_KEY=sk-xxxxxxxxxxxxxxxxxxx
 
 # 3. 拉起服务
-# 在项目根目录下打开终端，执行以下无缓存构建命令：
-# docker compose up -d --build
+ 在项目根目录下打开终端，执行以下无缓存构建命令：
+ docker compose up -d --build
 
 # 4. 访问应用
-# 前端页面 (Nginx 代理): http://localhost
-# 后端 API: http://localhost:8080
-# 数据库: 暴露于宿主机 3306 端口 (账号 root / 密码 123456)
+ 前端页面 (Nginx 代理): http://localhost
+ 后端 API: http://localhost:8080
+ 数据库: 暴露于宿主机 3306 端口 (账号 root / 密码 123456)
 
 
 ## 项目结构
