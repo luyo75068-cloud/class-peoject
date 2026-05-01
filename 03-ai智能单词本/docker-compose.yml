@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # 1. 数据库服务 (保留了你的精良配置，移除了危险的端口映射)
+  db:
+    image: mysql:8.0
+    container_name: english_learning_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: english_learning
+      TZ: Asia/Shanghai
+    volumes:
+      - ./docs/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    networks:
+      - geolex-net
+
+  # 2. 后端服务 (Go + Gin)
+  backend:
+    build: ./backend
+    container_name: geolex-backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - DB_DSN=root:123456@tcp(db:3306)/english_learning?charset=utf8mb4&parseTime=True&loc=Local
+      - JWT_SECRET=jwt_secret_key
+      - AI_API_KEY=sk-7b91f2da69064f34934fa10aee4d81af
+      - TZ=Asia/Shanghai
+    networks:
+      - geolex-net
+
+  # 3. 前端服务 (Nginx + React)
+  frontend:
+    build: ./frontend
+    container_name: geolex-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      # 全局唯一对外的访问入口
+      - "80:80"  
+    networks:
+      - geolex-net
+
+# 定义一个内部隔离网络，让三个容器可以通过名字互相访问
+networks:
+  geolex-net:
+    driver: bridge
+
+volumes:
+  db_data:
